@@ -7,8 +7,11 @@
 <?php $this->Html->addCrumb('Polls', array('action' => 'index')) ?>
 <?php $this->Html->addCrumb('Edit Poll', null) ?>
 
-<?= $this->Html->script('Polls.admin.js') ?>
-<?= $this->Html->css('Polls.admin.css') ?>
+<?= $this->AdaptHtml->script('bootstrap-datepicker') ?>
+<?= $this->Html->css("datepicker") ?>
+
+<?= $this->Html->script('Polls.admin') ?>
+<?= $this->Html->css('Polls.admin') ?>
 
 <ul id="admin-tab" class="nav nav-tabs left" style="margin-bottom:0">
 	<li class="active">
@@ -50,6 +53,17 @@
 		        'label' => 'Attach to Article',
 		        'empty' => ' - choose - '
 		    )) ?>
+
+			<?= $this->Form->input('start_date', array(
+				'type' => 'text',
+				'class' => 'datepicker',
+				'data-date-format' => 'yyyy-mm-dd'
+			)) ?>
+			<?= $this->Form->input('end_date', array(
+				'type' => 'text',
+				'class' => 'datepicker',
+				'data-date-format' => 'yyyy-mm-dd'
+			)) ?>
 
 		    <div id="options">
 		        <?php foreach($this->request->data['PollValue'] as $key => $data): ?>
